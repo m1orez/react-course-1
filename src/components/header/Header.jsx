@@ -1,4 +1,5 @@
-import headerImg from "../assets/react-core-concepts.png"
+import headerImg from "/Users/paulinewalhout/Desktop/react course/react-course-1/src/assets/react-core-concepts.png"
+import "./Header.css"
 
 const reactDescriptions = ["Fundamental", "Crucial", "Core"]
 

@@ -4,12 +4,13 @@ import { CORE_CONCEPTS } from "./data.js"
 import Header from "./components/header/Header.jsx"
 import CoreConcept from "./components/CoreConcept.jsx";
 import TabButton from "./components/TabButton.jsx";
+import { EXAMPLES } from "./data.js"
 
 function App() {
-  useState()
-  
+  const [ selectedTopic, setSelectedTopic ] = useState('components')
+
   function handleClick(selectedButton) {
-    console.log("hello world")
+    setSelectedTopic(selectedButton)
 }
   return (
     <div>
@@ -27,11 +28,20 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onClick={() => handleClick("component")}>Components</TabButton>
-            <TabButton onClick={() => handleClick("JSX")}>JSX</TabButton>
+            <TabButton onClick={() => handleClick("components")}>Components</TabButton>
+            <TabButton onClick={() => handleClick("jsx")}>JSX</TabButton>
             <TabButton onClick={() => handleClick("props")}>Props</TabButton>
-            <TabButton onClick={() => handleClick("states")}>State</TabButton>
+            <TabButton onClick={() => handleClick("state")}>State</TabButton>
           </menu>
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+                {EXAMPLES[selectedTopic].code}
+              </code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
